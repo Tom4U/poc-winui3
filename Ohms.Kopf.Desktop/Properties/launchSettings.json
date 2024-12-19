@@ -1,0 +1,10 @@
+{
+  "profiles": {
+    "Ohms.Kopf.Desktop (Package)": {
+      "commandName": "MsixPackage"
+    },
+    "Ohms.Kopf.Desktop (Unpackaged)": {
+      "commandName": "Project"
+    }
+  }
+}

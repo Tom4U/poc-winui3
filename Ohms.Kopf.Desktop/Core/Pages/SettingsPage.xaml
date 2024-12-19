@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Page
+    x:Class="Ohms.Kopf.Desktop.Core.Pages.SettingsPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:Ohms.Kopf.Desktop.Core.Pages"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:vm="using:Ohms.Kopf.Desktop.Core.Models"
+    mc:Ignorable="d"
+    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+
+    <Page.DataContext>
+        <vm:SettingsViewModel />
+    </Page.DataContext>
+
+    <Grid Padding="8">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="Auto" />
+        </Grid.RowDefinitions>
+
+        <TextBlock Grid.Row="0" Text="Einstellungen" Style="{ThemeResource TitleTextBlockStyle}" Margin="0 0 0 32" />
+
+        <StackPanel Grid.Row="1">
+            <TextBlock Text="App (client) ID" />
+            <TextBox Text="{Binding ClientId, Mode=TwoWay}" Width="350" HorizontalAlignment="Left" Margin="0 8" />
+
+            <TextBlock Text="Directory (tenant) ID" />
+            <TextBox Text="{Binding TenantId, Mode=TwoWay}" Width="350" HorizontalAlignment="Left" Margin="0 8" />
+        </StackPanel>
+
+        <Grid Grid.Row="3">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+            <Button Grid.Column="0" x:Name="CancelButton" Content="Abbrechen" Style="{ThemeResource DefaultButtonStyle}" Command="{Binding CancelCommand}" />
+            <Button Grid.Column="1" x:Name="SaveButton" Content="Speichern" Style="{ThemeResource AccentButtonStyle}" Command="{Binding StoreSettingsCommand}" HorizontalAlignment="Right" />
+        </Grid>
+    </Grid>
+</Page>
